@@ -5,6 +5,8 @@ A PHP Library that uses the [PHP-GD](http://php.net/manual/en/book.image.php) Ex
 RealCaptcha is released under the [MIT License](http://projects.dichrome.tk/realCaptcha/license.php). Visit the project [Homepage](http://projects.dichrome.tk/realCaptcha/) for more information.
 
 **Note:** This code is still in its Beta stage so it maybe prone to many bugs...
+**Note:** The Fonts included here are not created or owned by the author of the code,
+but none the less, their liscenses are open-source, commercial-friendly and permit redistribution
 
 ![Example Image](http://projects.dichrome.tk/realCaptcha/images/example.jpg)
 
