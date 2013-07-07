@@ -89,6 +89,31 @@ While Generating
 The `generate()` method will give high priority to the settings passed to it as an argument. These setting will be forgotten
 as soon as the captcha is finished generating.
 
+###Dealing with output
+	$realCaptcha = new realCaptcha();
+	$captcha = $realCaptcha->generate();
+
+The `generate()` method returns an Output object it has two methods and a buch of Properties.
+
+####The Methods
++ `file( path, format, quality)`: Writes Captcha to a file
++ `output( format, quality)`: Sets appropriate image format headers and sends the Image data to browser
+
+####The Properties
++ `text`: Contains a string words that are present in the captcha image, seperated by spaces
++ `array`: Contains an Array of the words present in the captcha image.
+
+####Example
+This example generates a captcha and stores the captcha text  in a session variable so that it can be 
+matched later and output the captcha image to browser and also daves the image to a file named `example.jpg`
+
+	session_start();
+	$realCaptcha = new realCaptcha();
+
+	$captcha = $realCaptcha->generate();
+	$_SESSION["captcha_text"] = $captcha->text;
+	$captcha->output("jpg",100);
+	$captcha->file("example.jpg","jpg",100);
 
 
 ###Saving Captcha to file
