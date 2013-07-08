@@ -6,7 +6,7 @@ RealCaptcha is released under the [MIT License](http://projects.dichrome.tk/real
 
 **Note:** This code is still in its Beta stage so it maybe prone to many bugs...  
 **Note:** The Fonts included here are not created or owned by the author of the code,
-but none the less, their liscenses are open-source, commercial-friendly and permit redistribution
+but none the less, their liscenses are open-source, commercial-friendly and permit redistribution, [Check them out](#fonts) yourself.
 
 ![Example Image](http://projects.dichrome.tk/realCaptcha/images/example.jpg)
 
@@ -193,6 +193,27 @@ calling the `generate()` method in which you intend to use the Custom function.
 	});
 
 	$captcha->generate()->output("jpg");
+
+
+Fonts
+---------
++ [swirled2](http://www.1001fonts.com/swirled-brk-font.html)
++ [Seraphim Font](http://www.1001fonts.com/seraphim-font.html)
++ [Potassium Scandal](http://www.1001fonts.com/potassium-scandal-font.html)
++ [RattyTatty](http://www.1001fonts.com/rattytatty-font.html)
++ [Quick End Jerk](http://www.fontsquirrel.com/fonts/Quick-End-Jerk)
++ [Zero & Zero Is](http://www.fontsquirrel.com/fonts/Zero-Zero-Is)
++ [Previewance](http://www.1001fonts.com/previewance-font.html)
++ [Playdough](http://www.1001fonts.com/playdough-font.html)
++ [Paper Cut](http://www.1001fonts.com/paper-cut-font.html)
++ [Nervous Rex](http://www.fontsquirrel.com/fonts/Nervous-Rex)
++ [Lilac Malaria](http://www.fontsquirrel.com/fonts/Lilac-Malaria)
++ [Eraser](http://www.fontsquirrel.com/fonts/Eraser)
++ [Edo](http://www.fontsquirrel.com/fonts/Edo)
++ [CarbonType](http://www.fontsquirrel.com/fonts/CarbonType)
++ [Boston Traffic](http://www.fontsquirrel.com/fonts/Boston-Traffic)
++ [1942 report](http://www.fontsquirrel.com/fonts/1942-report)
+
 
 
 Liscense
