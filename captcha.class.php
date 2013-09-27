@@ -153,6 +153,9 @@ class realCaptcha{
 		public function dictionaryText(&$settings=FALSE){
 			//init settings
 			$settings = !$settings? $this->settings : $settings;
+			
+			if (!file_exists($settings["dictionary_file"]))
+				return false;
 
 			$size = filesize($settings["dictionary_file"]);
 
