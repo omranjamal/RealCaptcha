@@ -34,7 +34,7 @@ class realCaptchaOutput{
 
 			default:
 				throw new Exception("Image Format not supported", 5);
-				
+
 		}
 	}
 
@@ -57,7 +57,7 @@ class realCaptchaOutput{
 
 			default:
 				throw new Exception("Image Format not supported", 5);
-				
+
 		}
 	}
 
@@ -153,9 +153,9 @@ class realCaptcha{
 		public function dictionaryText(&$settings=FALSE){
 			//init settings
 			$settings = !$settings? $this->settings : $settings;
-			
+
 			if (!file_exists($settings["dictionary_file"]))
-				return false;
+				throw new Exception("Error Finding dictionary file {$settings["dictionary_file"]}", 4);
 
 			$size = filesize($settings["dictionary_file"]);
 
@@ -170,7 +170,11 @@ class realCaptcha{
 			fseek($file, $start);
 
 			//read minimum number of characters and strip all non english characters
-			$raw = preg_replace("/[^a-zA-Z\s]/", "", fread($file, $minimum));
+			//$raw = preg_replace("/[^a-zA-Z\s]/", "", fread($file, $minimum));
+
+			//read minimum number of characters and replace all non english characters
+			$raw = realCaptcha::remove_accents(fread($file, $minimum));
+
 			$array = str_split($raw);
 
 			//Final Array container...
@@ -190,6 +194,10 @@ class realCaptcha{
 
 			//infinite loop, until break...
 			while(TRUE){
+
+				//if current character doesn't exist, stop the loop
+				if (empty($array[$pointer]))
+					break;
 
 				//if current character is a letter and a space has already been reached, add the character to temporary...
 				if( $first_reach && $array[$pointer] != " " ){
@@ -227,6 +235,18 @@ class realCaptcha{
 			return $text_array;
 		}
 
+		//Replace all non english characters with an equivalent
+		public function remove_accents($str, $charset='utf-8')
+		{
+		    $str = htmlentities($str, ENT_NOQUOTES, $charset);
+
+		    $str = preg_replace('#&([A-za-z])(?:acute|cedil|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $str);
+		    $str = preg_replace('#&([A-za-z]{2})(?:lig);#', '\1', $str);
+		    $str = preg_replace('#&[^;]+;#', '', $str);
+
+		    return $str;
+		}
+
 		private function randomText(&$settings=FALSE){
 
 			//Check if user set custom random_length or use session default or Random length
@@ -238,7 +258,7 @@ class realCaptcha{
 			for($i=0; $i<$length; $i++){
 				//Character type mode...
 				$mode = rand(1,3);
-				
+
 				switch($mode){
 					case 1: //Numeric
 						$text.= chr(rand(48,57));
@@ -250,7 +270,7 @@ class realCaptcha{
 						$text.= chr(rand(97,122));
 						break;
 				}
-				
+
 			}
 			return array($text);
 		}
@@ -356,7 +376,7 @@ class realCaptcha{
 		}
 
 		return array("p1"=> $up_left, "p2"=> $low_right, "image"=> $canvas, "total"=> array("height"=>$canvas_height, "width"=>$canvas_width ));
-		
+
 	}
 
 
@@ -447,8 +467,8 @@ class realCaptcha{
 				}else{
 					$tmp = $this->udiff_TextFunction();
 				}
-				
-				if(!is_array($tmp)){ //if it returns string 
+
+				if(!is_array($tmp)){ //if it returns string
 					$words = array($tmp);
 				}else{
 					$words = $tmp;
@@ -509,7 +529,7 @@ class realCaptcha{
 			$dst_x = 0;
 
 			foreach($samplers as $sample){
-				$temp_width = 
+				$temp_width =
 					//Scale width to ratio
 					$finals[$i]["dst_w"] = floor(($sample["src_w"]/$total_generated["width"])*$settings["width"]);
 					$finals[$i]["dst_rw"] = $finals[$i]["dst_w"] - ((5/100)*$finals[$i]["dst_w"]);
@@ -553,8 +573,8 @@ class realCaptcha{
 		$i=0;
 		foreach($finals as $final){
 			imagecopyresampled(
-				$canvas, 
-				$resources[$i]["image"], 
+				$canvas,
+				$resources[$i]["image"],
 				$final["dst_x"],
 				$final["dst_y"],
 				$samplers[$i]["src_x"],
