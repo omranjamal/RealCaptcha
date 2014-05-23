@@ -1,36 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="RealCaptcha : An Advanced PHP Captcha Generator" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>RealCaptcha by omran-jamal</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>RealCaptcha</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>RealCaptcha</h1>
+        <p>An Advanced PHP Captcha Generator</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/omran-jamal/realCaptcha">View on GitHub</a>
+        <p class="view"><a href="https://github.com/omran-jamal/realCaptcha">View the Project on GitHub <small>omran-jamal/realCaptcha</small></a></p>
 
-          <h1 id="project_title">RealCaptcha</h1>
-          <h2 id="project_tagline">An Advanced PHP Captcha Generator</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/omran-jamal/realCaptcha/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/omran-jamal/realCaptcha/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+        <ul>
+          <li><a href="https://github.com/omran-jamal/realCaptcha/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/omran-jamal/realCaptcha/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/omran-jamal/realCaptcha">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <p>A PHP Library that uses the <a href="http://php.net/manual/en/book.image.php">PHP-GD</a> Extension to generate Captchas with only PHP.<br>
 RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptcha/license.php">MIT License</a>. Visit the project <a href="http://projects.dichrome.tk/realCaptcha/">Homepage</a> for more information.</p>
 
@@ -48,23 +45,15 @@ RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptc
 <p>Supports 4 different captcha text sources</p>
 
 <ul>
-<li>
-<strong>Input</strong><br>
-</li>
-<li>
-<strong>Custom Generator Functions</strong><br> You can define a custom function of your own that generates the text that should be in the captcha.<br>
-</li>
-<li>
-<strong>Random Text Generator</strong><br> Generates a random string of Letters and Numbers.<br>
-</li>
-<li>
-<strong>Dictionary File</strong><br> Can use any file containing space separated words as a dictionary file to choose words from.</li>
+<li><p><strong>Input</strong><br></p></li>
+<li><p><strong>Custom Generator Functions</strong><br> You can define a custom function of your own that generates the text that should be in the captcha.<br></p></li>
+<li><p><strong>Random Text Generator</strong><br> Generates a random string of Letters and Numbers.<br></p></li>
+<li><p><strong>Dictionary File</strong><br> Can use any file containing space separated words as a dictionary file to choose words from.</p></li>
 </ul>
 </li>
 <li><p>Captcha Image Compression</p></li>
-<li><p>3 different output formats ( <strong>jpg</strong>, <strong>png</strong>, <strong>gif</strong> )</p></li>
-<li>
-<p>Output locations</p>
+<li>3 different output formats ( <strong>jpg</strong>, <strong>png</strong>, <strong>gif</strong> )</li>
+<li>Output locations
 
 <ul>
 <li>To Browser</li>
@@ -195,7 +184,8 @@ $captcha-&gt;file("file.jpg" ,"jpg", 90);
 <strong>source</strong> (realCaptcha source type constant): Where to get the captcha text from.
 
 <ul>
-<li>**<code>realCaptcha::INPUT</code>**: Requires you to pass the captcha text while calling <code>generate()</code> method</li>
+<li>
+<strong><code>realCaptcha::INPUT</code></strong>: Requires you to pass the captcha text while calling <code>generate()</code> method</li>
 <li>
 <strong><code>realCaptcha::RANDOM</code></strong>: Generates a random string of letters and numbers.</li>
 <li>
@@ -293,17 +283,12 @@ $captcha-&gt;generate()-&gt;output("jpg");
 
 <p>RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptcha/license.php">MIT License</a>. Visit the project <a href="http://projects.dichrome.tk/realCaptcha/">Homepage</a> for more information.</p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">RealCaptcha maintained by <a href="https://github.com/omran-jamal">omran-jamal</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/omran-jamal">omran-jamal</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
-
   </body>
 </html>
