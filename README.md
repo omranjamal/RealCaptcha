@@ -39,62 +39,64 @@ but none the less, their liscenses are open-source, commercial-friendly and perm
 Basic Usage
 ---------------------------
 ###Basic
-	include("captcha.class.php");
-	$captcha = new realCaptcha();
-	$captcha->generate()->output("jpg");
-
+```php
+include("captcha.class.php");
+$captcha = new realCaptcha();
+$captcha->generate()->output("jpg");
+```
 
 ###Configuring
 All three of these code output similar Captchas to the browser in JPG Format.  
 
 While Initializing
+```php
+$realCaptcha = new realCaptcha(array(
+	"height" = 200,
+	"width" = 500,
+	"number_of_words" = 2
+));
 
-	$realCaptcha = new realCaptcha(array(
-		"height" = 200,
-		"width" = 500,
-		"number_of_words" = 2
-	));
-
-	$captcha = $realCaptcha->generate();
-	$captcha->output("jpg");
-
+$captcha = $realCaptcha->generate();
+$captcha->output("jpg");
+```
 The Settings you provide at Initialzation will be used everytime the `generate()` method is called.  
 
 Using the ***`set()`*** method
+```php
+$realCaptcha = new realCaptcha();
 
-	$realCaptcha = new realCaptcha();
+$realCaptcha->set(array(
+	"height" = 200,
+	"width" = 500,
+	"number_of_words" = 2
+));
 
-	$realCaptcha->set(array(
-		"height" = 200,
-		"width" = 500,
-		"number_of_words" = 2
-	));
-
-	$captcha = $realCaptcha->generate();
-	$captcha->output("jpg");
-
+$captcha = $realCaptcha->generate();
+$captcha->output("jpg");
+```
 The settings you define with the `set()` method will overwrite the settings you provided at initialization and will be used
 every time the `generate()` method is called.  
 
 While Generating
 
+```php
+$realCaptcha = new realCaptcha();
 
-	$realCaptcha = new realCaptcha();
-
-	$captcha = $realCaptcha->generate(array(
-		"height" = 200,
-		"width" = 500,
-		"number_of_words" = 2
-	));
-	$captcha->output("jpg");
-
+$captcha = $realCaptcha->generate(array(
+	"height" = 200,
+	"width" = 500,
+	"number_of_words" = 2
+));
+$captcha->output("jpg");
+```
 The `generate()` method will give high priority to the settings passed to it as an argument. These setting will be forgotten
 as soon as the captcha is finished generating.
 
 ###Dealing with output
-	$realCaptcha = new realCaptcha();
-	$captcha = $realCaptcha->generate();
-
+```php
+$realCaptcha = new realCaptcha();
+$captcha = $realCaptcha->generate();
+```
 The `generate()` method returns an Output object it has two methods and a buch of Properties.
 
 ####The Methods
@@ -108,22 +110,22 @@ The `generate()` method returns an Output object it has two methods and a buch o
 ####Example
 This example generates a captcha and stores the captcha text  in a session variable so that it can be 
 matched later and output the captcha image to browser and also daves the image to a file named `example.jpg`
+```php
+session_start();
+$realCaptcha = new realCaptcha();
 
-	session_start();
-	$realCaptcha = new realCaptcha();
-
-	$captcha = $realCaptcha->generate();
-	$_SESSION["captcha_text"] = $captcha->text;
-	$captcha->output("jpg",100);
-	$captcha->file("example.jpg","jpg",100);
-
+$captcha = $realCaptcha->generate();
+$_SESSION["captcha_text"] = $captcha->text;
+$captcha->output("jpg",100);
+$captcha->file("example.jpg","jpg",100);
+```
 
 ###Saving Captcha to file
 To save captcha to file, you can use the **`file( file_path, format, quality)`** method.
-
-	$captcha = $realCaptcha->generate();
-	$captcha->file("file.jpg" ,"jpg", 90);
-
+```php
+$captcha = $realCaptcha->generate();
+$captcha->file("file.jpg" ,"jpg", 90);
+```
 Full List of settings
 --------------------------------
 + **height** (a positive Integer) : Height of the generated Captcha Image.
@@ -146,13 +148,14 @@ Full List of settings
 Advanced Usage
 ---------------------------
 ###Setting Background and Text color
-	$captcha = new realCaptcha(array(
-		"background_color" => array(255,0,0), //Bright Red
-		"text_color" => array(255,255,255) //White
-	));
+```php
+$captcha = new realCaptcha(array(
+	"background_color" => array(255,0,0), //Bright Red
+	"text_color" => array(255,255,255) //White
+));
 
-	$captcha->generate()->output("jpg");
-
+$captcha->generate()->output("jpg");
+```
 ###Using direct Input
 Both these codes are correct but work in different ways and the settings persist 
 for different fractions of the run cycle.
@@ -167,16 +170,16 @@ $captcha->generate("Text")->output("jpg");
 ```
 
 Setting at Generator
-
-	$captcha = new realCaptcha();
-	$captcha->generate("Text", array("source" => realCaptcha::INPUT))->output("jpg");
-
+```php
+$captcha = new realCaptcha();
+$captcha->generate("Text", array("source" => realCaptcha::INPUT))->output("jpg");
+```
 It is Completely ok to pass String or an Array as input into the generator method,
 thus both the following teo lines of code are valid
-
-	$captcha->generate("Text")->output("jpg");
-	$captcha->generate(array("example","text"))->output("jpg");
-
+```php
+$captcha->generate("Text")->output("jpg");
+$captcha->generate(array("example","text"))->output("jpg");
+```
 ###Using Custom Text Generator Function
 Unlike __Direct Input__ , Custom Functions cannot be set and declared at the __generator__ method,
 custom function usage has to be declared in the initialization settings or through the `set()` method
@@ -184,16 +187,17 @@ and the function has to be define through the `textFunction()` method as the fir
 calling the `generate()` method in which you intend to use the Custom function.
 
 ####Example
-	$captcha = new realCaptcha(array(
-		"source" => realCaptcha::uFUNCTION
-	));
+```php
+$captcha = new realCaptcha(array(
+	"source" => realCaptcha::uFUNCTION
+));
 
-	$captcha->textFunction(function(){
-		return array("returned","text");
-	});
+$captcha->textFunction(function(){
+	return array("returned","text");
+});
 
-	$captcha->generate()->output("jpg");
-
+$captcha->generate()->output("jpg");
+```
 
 Fonts
 ---------
