@@ -16,7 +16,7 @@
     <div class="wrapper">
       <header>
         <h1>RealCaptcha</h1>
-        <p>An Advanced PHP Captcha Generator</p>
+        <p>An advanced PHP Captcha Generator</p>
 
         <p class="view"><a href="https://github.com/omran-jamal/realCaptcha">View the Project on GitHub <small>omran-jamal/realCaptcha</small></a></p>
 
@@ -28,10 +28,14 @@
         </ul>
       </header>
       <section>
-        <p>A PHP Library that uses the <a href="http://php.net/manual/en/book.image.php">PHP-GD</a> Extension to generate Captchas with only PHP.<br>
+        <h1>
+<a name="realcaptcha---beta-1" class="anchor" href="#realcaptcha---beta-1"><span class="octicon octicon-link"></span></a>RealCaptcha - BETA 1</h1>
+
+<p>A PHP Library that uses the <a href="http://php.net/manual/en/book.image.php">PHP-GD</a> Extension to generate Captchas with only PHP.<br>
 RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptcha/license.php">MIT License</a>. Visit the project <a href="http://projects.dichrome.tk/realCaptcha/">Homepage</a> for more information.</p>
 
-<p><strong>Note:</strong> This code is still in its Beta stage so it maybe prone to many bugs...</p>
+<p><strong>Note:</strong> This code is still in its Beta stage so it maybe prone to many bugs...<br><strong>Note:</strong> The Fonts included here are not created or owned by the author of the code,
+but none the less, their liscenses are open-source, commercial-friendly and permit redistribution, <a href="#fonts">Check them out</a> yourself.</p>
 
 <p><img src="http://projects.dichrome.tk/realCaptcha/images/example.jpg" alt="Example Image"></p>
 
@@ -67,10 +71,10 @@ RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptc
 <h3>
 <a name="basic" class="anchor" href="#basic"><span class="octicon octicon-link"></span></a>Basic</h3>
 
-<pre><code>include("captcha.class.php");
-$captcha = new realCaptcha();
-$captcha-&gt;generate()-&gt;output("jpg");
-</code></pre>
+<div class="highlight highlight-php"><pre><span class="k">include</span><span class="p">(</span><span class="s2">"captcha.class.php"</span><span class="p">);</span>
+<span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <h3>
 <a name="configuring" class="anchor" href="#configuring"><span class="octicon octicon-link"></span></a>Configuring</h3>
@@ -79,46 +83,46 @@ $captcha-&gt;generate()-&gt;output("jpg");
 
 <p>While Initializing</p>
 
-<pre><code>$realCaptcha = new realCaptcha(array(
-    "height" = 200,
-    "width" = 500,
-    "number_of_words" = 2
-));
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"height"</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"width"</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s2">"number_of_words"</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">));</span>
 
-$captcha = $realCaptcha-&gt;generate();
-$captcha-&gt;output("jpg");
-</code></pre>
+<span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <p>The Settings you provide at Initialzation will be used everytime the <code>generate()</code> method is called.  </p>
 
 <p>Using the <strong><em><code>set()</code></em></strong> method</p>
 
-<pre><code>$realCaptcha = new realCaptcha();
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
 
-$realCaptcha-&gt;set(array(
-    "height" = 200,
-    "width" = 500,
-    "number_of_words" = 2
-));
+<span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"height"</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"width"</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s2">"number_of_words"</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">));</span>
 
-$captcha = $realCaptcha-&gt;generate();
-$captcha-&gt;output("jpg");
-</code></pre>
+<span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <p>The settings you define with the <code>set()</code> method will overwrite the settings you provided at initialization and will be used
 every time the <code>generate()</code> method is called.  </p>
 
 <p>While Generating</p>
 
-<pre><code>$realCaptcha = new realCaptcha();
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
 
-$captcha = $realCaptcha-&gt;generate(array(
-    "height" = 200,
-    "width" = 500,
-    "number_of_words" = 2
-));
-$captcha-&gt;output("jpg");
-</code></pre>
+<span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"height"</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"width"</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s2">"number_of_words"</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">));</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <p>The <code>generate()</code> method will give high priority to the settings passed to it as an argument. These setting will be forgotten
 as soon as the captcha is finished generating.</p>
@@ -126,9 +130,9 @@ as soon as the captcha is finished generating.</p>
 <h3>
 <a name="dealing-with-output" class="anchor" href="#dealing-with-output"><span class="octicon octicon-link"></span></a>Dealing with output</h3>
 
-<pre><code>$realCaptcha = new realCaptcha();
-$captcha = $realCaptcha-&gt;generate();
-</code></pre>
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+</pre></div>
 
 <p>The <code>generate()</code> method returns an Output object it has two methods and a buch of Properties.</p>
 
@@ -154,23 +158,23 @@ $captcha = $realCaptcha-&gt;generate();
 <p>This example generates a captcha and stores the captcha text  in a session variable so that it can be 
 matched later and output the captcha image to browser and also daves the image to a file named <code>example.jpg</code></p>
 
-<pre><code>session_start();
-$realCaptcha = new realCaptcha();
+<div class="highlight highlight-php"><pre><span class="nb">session_start</span><span class="p">();</span>
+<span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
 
-$captcha = $realCaptcha-&gt;generate();
-$_SESSION["captcha_text"] = $captcha-&gt;text;
-$captcha-&gt;output("jpg",100);
-$captcha-&gt;file("example.jpg","jpg",100);
-</code></pre>
+<span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+<span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"captcha_text"</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">;</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">(</span><span class="s2">"example.jpg"</span><span class="p">,</span><span class="s2">"jpg"</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
 
 <h3>
 <a name="saving-captcha-to-file" class="anchor" href="#saving-captcha-to-file"><span class="octicon octicon-link"></span></a>Saving Captcha to file</h3>
 
 <p>To save captcha to file, you can use the <strong><code>file( file_path, format, quality)</code></strong> method.</p>
 
-<pre><code>$captcha = $realCaptcha-&gt;generate();
-$captcha-&gt;file("file.jpg" ,"jpg", 90);
-</code></pre>
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">(</span><span class="s2">"file.jpg"</span> <span class="p">,</span><span class="s2">"jpg"</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
+</pre></div>
 
 <h2>
 <a name="full-list-of-settings" class="anchor" href="#full-list-of-settings"><span class="octicon octicon-link"></span></a>Full List of settings</h2>
@@ -220,13 +224,13 @@ $captcha-&gt;file("file.jpg" ,"jpg", 90);
 <h3>
 <a name="setting-background-and-text-color" class="anchor" href="#setting-background-and-text-color"><span class="octicon octicon-link"></span></a>Setting Background and Text color</h3>
 
-<pre><code>$captcha = new realCaptcha(array(
-    "background_color" =&gt; array(255,0,0), //Bright Red
-    "text_color" =&gt; array(255,255,255) //White
-));
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"background_color"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="c1">//Bright Red</span>
+    <span class="s2">"text_color"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span> <span class="c1">//White</span>
+<span class="p">));</span>
 
-$captcha-&gt;generate()-&gt;output("jpg");
-</code></pre>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <h3>
 <a name="using-direct-input" class="anchor" href="#using-direct-input"><span class="octicon octicon-link"></span></a>Using direct Input</h3>
@@ -236,25 +240,25 @@ for different fractions of the run cycle.</p>
 
 <p>Setting at Initialization</p>
 
-<pre><code>$captcha = new realCaptcha(array(
-    "source" =&gt; realCaptcha::INPUT
-));
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"source"</span> <span class="o">=&gt;</span> <span class="nx">realCaptcha</span><span class="o">::</span><span class="na">INPUT</span>
+<span class="p">));</span>
 
-$captcha-&gt;generate("Text")-&gt;output("jpg");
-</code></pre>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="s2">"Text"</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <p>Setting at Generator</p>
 
-<pre><code>$captcha = new realCaptcha();
-$captcha-&gt;generate("Text", array("source" =&gt; realCaptcha::INPUT))-&gt;output("jpg");
-</code></pre>
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="s2">"Text"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"source"</span> <span class="o">=&gt;</span> <span class="nx">realCaptcha</span><span class="o">::</span><span class="na">INPUT</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <p>It is Completely ok to pass String or an Array as input into the generator method,
 thus both the following teo lines of code are valid</p>
 
-<pre><code>$captcha-&gt;generate("Text")-&gt;output("jpg");
-$captcha-&gt;generate(array("example","text"))-&gt;output("jpg");
-</code></pre>
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="s2">"Text"</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span><span class="s2">"text"</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <h3>
 <a name="using-custom-text-generator-function" class="anchor" href="#using-custom-text-generator-function"><span class="octicon octicon-link"></span></a>Using Custom Text Generator Function</h3>
@@ -267,18 +271,38 @@ calling the <code>generate()</code> method in which you intend to use the Custom
 <h4>
 <a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h4>
 
-<pre><code>$captcha = new realCaptcha(array(
-    "source" =&gt; realCaptcha::uFUNCTION
-));
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"source"</span> <span class="o">=&gt;</span> <span class="nx">realCaptcha</span><span class="o">::</span><span class="na">uFUNCTION</span>
+<span class="p">));</span>
 
-$captcha-&gt;textFunction(function(){
-    return array("returned","text");
-});
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">textFunction</span><span class="p">(</span><span class="k">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s2">"returned"</span><span class="p">,</span><span class="s2">"text"</span><span class="p">);</span>
+<span class="p">});</span>
 
-$captcha-&gt;generate()-&gt;output("jpg");
-</code></pre>
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
+</pre></div>
 
 <h2>
+<a name="fonts" class="anchor" href="#fonts"><span class="octicon octicon-link"></span></a>Fonts</h2>
+
+<ul>
+<li><a href="http://www.1001fonts.com/swirled-brk-font.html">swirled2</a></li>
+<li><a href="http://www.1001fonts.com/seraphim-font.html">Seraphim Font</a></li>
+<li><a href="http://www.1001fonts.com/potassium-scandal-font.html">Potassium Scandal</a></li>
+<li><a href="http://www.1001fonts.com/rattytatty-font.html">RattyTatty</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/Quick-End-Jerk">Quick End Jerk</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/Zero-Zero-Is">Zero &amp; Zero Is</a></li>
+<li><a href="http://www.1001fonts.com/previewance-font.html">Previewance</a></li>
+<li><a href="http://www.1001fonts.com/playdough-font.html">Playdough</a></li>
+<li><a href="http://www.1001fonts.com/paper-cut-font.html">Paper Cut</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/Nervous-Rex">Nervous Rex</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/Lilac-Malaria">Lilac Malaria</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/Eraser">Eraser</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/Edo">Edo</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/CarbonType">CarbonType</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/Boston-Traffic">Boston Traffic</a></li>
+<li><a href="http://www.fontsquirrel.com/fonts/1942-report">1942 report</a></li>
+</ul><h2>
 <a name="liscense" class="anchor" href="#liscense"><span class="octicon octicon-link"></span></a>Liscense</h2>
 
 <p>RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptcha/license.php">MIT License</a>. Visit the project <a href="http://projects.dichrome.tk/realCaptcha/">Homepage</a> for more information.</p>
