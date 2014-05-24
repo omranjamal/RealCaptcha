@@ -1,0 +1,15 @@
+{
+    "name": "omran-jamal/real-captcha",
+    "description": "Generate Captchas with just PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Omran Jamal",
+            "email": "o.jamal97@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ext-gd":"*"
+    }
+}
