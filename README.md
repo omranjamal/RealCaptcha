@@ -158,13 +158,13 @@ Both these codes are correct but work in different ways and the settings persist
 for different fractions of the run cycle.
 
 Setting at Initialization
+```php
+$captcha = new realCaptcha(array(
+	"source" => realCaptcha::INPUT
+));
 
-	$captcha = new realCaptcha(array(
-		"source" => realCaptcha::INPUT
-	));
-
-	$captcha->generate("Text")->output("jpg");
-
+$captcha->generate("Text")->output("jpg");
+```
 
 Setting at Generator
 
