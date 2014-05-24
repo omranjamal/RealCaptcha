@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>RealCaptcha by omran-jamal</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>RealCaptcha</h1>
+        <p>An Advanced PHP Captcha Generator</p>
+
+        <p class="view"><a href="https://github.com/omran-jamal/realCaptcha">View the Project on GitHub <small>omran-jamal/realCaptcha</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/omran-jamal/realCaptcha/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/omran-jamal/realCaptcha/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/omran-jamal/realCaptcha">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>A PHP Library that uses the <a href="http://php.net/manual/en/book.image.php">PHP-GD</a> Extension to generate Captchas with only PHP.<br>
+RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptcha/license.php">MIT License</a>. Visit the project <a href="http://projects.dichrome.tk/realCaptcha/">Homepage</a> for more information.</p>
+
+<p><strong>Note:</strong> This code is still in its Beta stage so it maybe prone to many bugs...</p>
+
+<p><img src="http://projects.dichrome.tk/realCaptcha/images/example.jpg" alt="Example Image"></p>
+
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Custom Fonts</li>
+<li>Customizable Colors</li>
+<li>
+<p>Supports 4 different captcha text sources</p>
+
+<ul>
+<li><p><strong>Input</strong><br></p></li>
+<li><p><strong>Custom Generator Functions</strong><br> You can define a custom function of your own that generates the text that should be in the captcha.<br></p></li>
+<li><p><strong>Random Text Generator</strong><br> Generates a random string of Letters and Numbers.<br></p></li>
+<li><p><strong>Dictionary File</strong><br> Can use any file containing space separated words as a dictionary file to choose words from.</p></li>
+</ul>
+</li>
+<li><p>Captcha Image Compression</p></li>
+<li>3 different output formats ( <strong>jpg</strong>, <strong>png</strong>, <strong>gif</strong> )</li>
+<li>Output locations
+
+<ul>
+<li>To Browser</li>
+<li>To File</li>
+<li>Return GD Resource Handle</li>
+</ul>
+</li>
+</ul><h2>
+<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
+
+<h3>
+<a name="basic" class="anchor" href="#basic"><span class="octicon octicon-link"></span></a>Basic</h3>
+
+<pre><code>include("captcha.class.php");
+$captcha = new realCaptcha();
+$captcha-&gt;generate()-&gt;output("jpg");
+</code></pre>
+
+<h3>
+<a name="configuring" class="anchor" href="#configuring"><span class="octicon octicon-link"></span></a>Configuring</h3>
+
+<p>All three of these code output similar Captchas to the browser in JPG Format.  </p>
+
+<p>While Initializing</p>
+
+<pre><code>$realCaptcha = new realCaptcha(array(
+    "height" = 200,
+    "width" = 500,
+    "number_of_words" = 2
+));
+
+$captcha = $realCaptcha-&gt;generate();
+$captcha-&gt;output("jpg");
+</code></pre>
+
+<p>The Settings you provide at Initialzation will be used everytime the <code>generate()</code> method is called.  </p>
+
+<p>Using the <strong><em><code>set()</code></em></strong> method</p>
+
+<pre><code>$realCaptcha = new realCaptcha();
+
+$realCaptcha-&gt;set(array(
+    "height" = 200,
+    "width" = 500,
+    "number_of_words" = 2
+));
+
+$captcha = $realCaptcha-&gt;generate();
+$captcha-&gt;output("jpg");
+</code></pre>
+
+<p>The settings you define with the <code>set()</code> method will overwrite the settings you provided at initialization and will be used
+every time the <code>generate()</code> method is called.  </p>
+
+<p>While Generating</p>
+
+<pre><code>$realCaptcha = new realCaptcha();
+
+$captcha = $realCaptcha-&gt;generate(array(
+    "height" = 200,
+    "width" = 500,
+    "number_of_words" = 2
+));
+$captcha-&gt;output("jpg");
+</code></pre>
+
+<p>The <code>generate()</code> method will give high priority to the settings passed to it as an argument. These setting will be forgotten
+as soon as the captcha is finished generating.</p>
+
+<h3>
+<a name="dealing-with-output" class="anchor" href="#dealing-with-output"><span class="octicon octicon-link"></span></a>Dealing with output</h3>
+
+<pre><code>$realCaptcha = new realCaptcha();
+$captcha = $realCaptcha-&gt;generate();
+</code></pre>
+
+<p>The <code>generate()</code> method returns an Output object it has two methods and a buch of Properties.</p>
+
+<h4>
+<a name="the-methods" class="anchor" href="#the-methods"><span class="octicon octicon-link"></span></a>The Methods</h4>
+
+<ul>
+<li>
+<code>file( path, format, quality)</code>: Writes Captcha to a file</li>
+<li>
+<code>output( format, quality)</code>: Sets appropriate image format headers and sends the Image data to browser</li>
+</ul><h4>
+<a name="the-properties" class="anchor" href="#the-properties"><span class="octicon octicon-link"></span></a>The Properties</h4>
+
+<ul>
+<li>
+<code>text</code>: Contains a string words that are present in the captcha image, seperated by spaces</li>
+<li>
+<code>array</code>: Contains an Array of the words present in the captcha image.</li>
+</ul><h4>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<p>This example generates a captcha and stores the captcha text  in a session variable so that it can be 
+matched later and output the captcha image to browser and also daves the image to a file named <code>example.jpg</code></p>
+
+<pre><code>session_start();
+$realCaptcha = new realCaptcha();
+
+$captcha = $realCaptcha-&gt;generate();
+$_SESSION["captcha_text"] = $captcha-&gt;text;
+$captcha-&gt;output("jpg",100);
+$captcha-&gt;file("example.jpg","jpg",100);
+</code></pre>
+
+<h3>
+<a name="saving-captcha-to-file" class="anchor" href="#saving-captcha-to-file"><span class="octicon octicon-link"></span></a>Saving Captcha to file</h3>
+
+<p>To save captcha to file, you can use the <strong><code>file( file_path, format, quality)</code></strong> method.</p>
+
+<pre><code>$captcha = $realCaptcha-&gt;generate();
+$captcha-&gt;file("file.jpg" ,"jpg", 90);
+</code></pre>
+
+<h2>
+<a name="full-list-of-settings" class="anchor" href="#full-list-of-settings"><span class="octicon octicon-link"></span></a>Full List of settings</h2>
+
+<ul>
+<li>
+<strong>height</strong> (a positive Integer) : Height of the generated Captcha Image.</li>
+<li>
+<strong>width</strong> (a positive integer) : Width of the generated Captcha Image.</li>
+<li>
+<strong>source</strong> (realCaptcha source type constant): Where to get the captcha text from.
+
+<ul>
+<li>
+<strong><code>realCaptcha::INPUT</code></strong>: Requires you to pass the captcha text while calling <code>generate()</code> method</li>
+<li>
+<strong><code>realCaptcha::RANDOM</code></strong>: Generates a random string of letters and numbers.</li>
+<li>
+<strong><code>realCaptcha::DICTIONARY</code></strong>: Selects words at random from the dictionary file.</li>
+<li>
+<strong><code>realCaptcha::uFUNCTION</code></strong>: Requires you to set a custom made function that returns the captcha text.</li>
+</ul>
+</li>
+<li>
+<strong>dictionary_file</strong> (a valid file path): Path to the dictionary File.</li>
+<li>
+<strong>fonts_dir</strong> (a valid directory path): Path to the dictory containing all the fonts.</li>
+<li>
+<strong>number_of_words</strong> (a positive integer): Number of words the captcha image should contain.</li>
+<li>
+<strong>random_length</strong> (a positive integer): the length of the randomly generated string.</li>
+<li>
+<strong>background_color</strong> (realCaptcha variable_grey setting constant or array)
+
+<ul>
+<li>
+<strong><code>realCaptcha::GREY_VARIABLE</code></strong> : Randomly chooses a shade from white to light ash.</li>
+<li>
+<strong><code>array( int, int, int)</code></strong> : A numerical array containing RGB values.</li>
+</ul>
+</li>
+<li>
+<strong>text_color</strong> (array): A numerical array containing RGB values.</li>
+</ul><h2>
+<a name="advanced-usage" class="anchor" href="#advanced-usage"><span class="octicon octicon-link"></span></a>Advanced Usage</h2>
+
+<h3>
+<a name="setting-background-and-text-color" class="anchor" href="#setting-background-and-text-color"><span class="octicon octicon-link"></span></a>Setting Background and Text color</h3>
+
+<pre><code>$captcha = new realCaptcha(array(
+    "background_color" =&gt; array(255,0,0), //Bright Red
+    "text_color" =&gt; array(255,255,255) //White
+));
+
+$captcha-&gt;generate()-&gt;output("jpg");
+</code></pre>
+
+<h3>
+<a name="using-direct-input" class="anchor" href="#using-direct-input"><span class="octicon octicon-link"></span></a>Using direct Input</h3>
+
+<p>Both these codes are correct but work in different ways and the settings persist 
+for different fractions of the run cycle.</p>
+
+<p>Setting at Initialization</p>
+
+<pre><code>$captcha = new realCaptcha(array(
+    "source" =&gt; realCaptcha::INPUT
+));
+
+$captcha-&gt;generate("Text")-&gt;output("jpg");
+</code></pre>
+
+<p>Setting at Generator</p>
+
+<pre><code>$captcha = new realCaptcha();
+$captcha-&gt;generate("Text", array("source" =&gt; realCaptcha::INPUT))-&gt;output("jpg");
+</code></pre>
+
+<p>It is Completely ok to pass String or an Array as input into the generator method,
+thus both the following teo lines of code are valid</p>
+
+<pre><code>$captcha-&gt;generate("Text")-&gt;output("jpg");
+$captcha-&gt;generate(array("example","text"))-&gt;output("jpg");
+</code></pre>
+
+<h3>
+<a name="using-custom-text-generator-function" class="anchor" href="#using-custom-text-generator-function"><span class="octicon octicon-link"></span></a>Using Custom Text Generator Function</h3>
+
+<p>Unlike <strong>Direct Input</strong> , Custom Functions cannot be set and declared at the <strong>generator</strong> method,
+custom function usage has to be declared in the initialization settings or through the <code>set()</code> method
+and the function has to be define through the <code>textFunction()</code> method as the first argument. All prior to 
+calling the <code>generate()</code> method in which you intend to use the Custom function.</p>
+
+<h4>
+<a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<pre><code>$captcha = new realCaptcha(array(
+    "source" =&gt; realCaptcha::uFUNCTION
+));
+
+$captcha-&gt;textFunction(function(){
+    return array("returned","text");
+});
+
+$captcha-&gt;generate()-&gt;output("jpg");
+</code></pre>
+
+<h2>
+<a name="liscense" class="anchor" href="#liscense"><span class="octicon octicon-link"></span></a>Liscense</h2>
+
+<p>RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptcha/license.php">MIT License</a>. Visit the project <a href="http://projects.dichrome.tk/realCaptcha/">Homepage</a> for more information.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/omran-jamal">omran-jamal</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
