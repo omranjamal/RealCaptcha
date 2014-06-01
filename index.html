@@ -37,7 +37,7 @@ RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptc
 <p><strong>Note:</strong> This code is still in its Beta stage so it maybe prone to many bugs...<br><strong>Note:</strong> The Fonts included here are not created or owned by the author of the code,
 but none the less, their liscenses are open-source, commercial-friendly and permit redistribution, <a href="#fonts">Check them out</a> yourself.</p>
 
-<p><img src="http://projects.dichrome.tk/realCaptcha/images/example.jpg" alt="Example Image"></p>
+<p><img src="https://raw.githubusercontent.com/omran-jamal/realCaptcha/master/examples/output/c6.jpg" alt="Example Image"></p>
 
 <h2>
 <a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
@@ -66,13 +66,32 @@ but none the less, their liscenses are open-source, commercial-friendly and perm
 </ul>
 </li>
 </ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The simplest method is using <a href="https://getcomposer.org">Composer</a>. Just require it in your <code>composer.json</code> file as such:</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"require"</span><span class="p">:{</span>
+        <span class="nt">"omran-jamal/real-captcha"</span><span class="p">:</span><span class="s2">"dev-master"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>To incluude it in your project, include the composer autoloader and just create new objects of the <code>RealCaptcha</code> class under the <code>RealCaptcha</code> namespace as such:</p>
+
+<div class="highlight highlight-php"><pre><span class="k">include</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+<span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">();</span>
+</pre></div>
+
+<p>Alternatively you could manually clone or download this reppository and directly include the Class file in and create an object of <code>RealCaptcha\RealCaptcha</code></p>
+
+<h2>
 <a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
 
 <h3>
 <a name="basic" class="anchor" href="#basic"><span class="octicon octicon-link"></span></a>Basic</h3>
 
-<div class="highlight highlight-php"><pre><span class="k">include</span><span class="p">(</span><span class="s2">"captcha.class.php"</span><span class="p">);</span>
-<span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">();</span>
 <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
 </pre></div>
 
@@ -83,7 +102,7 @@ but none the less, their liscenses are open-source, commercial-friendly and perm
 
 <p>While Initializing</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
     <span class="s2">"height"</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
     <span class="s2">"width"</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
     <span class="s2">"number_of_words"</span> <span class="o">=</span> <span class="mi">2</span>
@@ -97,7 +116,7 @@ but none the less, their liscenses are open-source, commercial-friendly and perm
 
 <p>Using the <strong><em><code>set()</code></em></strong> method</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">();</span>
 
 <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
     <span class="s2">"height"</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
@@ -114,7 +133,7 @@ every time the <code>generate()</code> method is called.  </p>
 
 <p>While Generating</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">();</span>
 
 <span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
     <span class="s2">"height"</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
@@ -130,7 +149,7 @@ as soon as the captcha is finished generating.</p>
 <h3>
 <a name="dealing-with-output" class="anchor" href="#dealing-with-output"><span class="octicon octicon-link"></span></a>Dealing with output</h3>
 
-<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<div class="highlight highlight-php"><pre><span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">();</span>
 <span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
 </pre></div>
 
@@ -159,7 +178,7 @@ as soon as the captcha is finished generating.</p>
 matched later and output the captcha image to browser and also daves the image to a file named <code>example.jpg</code></p>
 
 <div class="highlight highlight-php"><pre><span class="nb">session_start</span><span class="p">();</span>
-<span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<span class="nv">$realCaptcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">();</span>
 
 <span class="nv">$captcha</span> <span class="o">=</span> <span class="nv">$realCaptcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">();</span>
 <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"captcha_text"</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">;</span>
@@ -189,13 +208,13 @@ matched later and output the captcha image to browser and also daves the image t
 
 <ul>
 <li>
-<strong><code>realCaptcha::INPUT</code></strong>: Requires you to pass the captcha text while calling <code>generate()</code> method</li>
+<strong><code>RealCaptcha\RealCaptcha::INPUT</code></strong>: Requires you to pass the captcha text while calling <code>generate()</code> method</li>
 <li>
-<strong><code>realCaptcha::RANDOM</code></strong>: Generates a random string of letters and numbers.</li>
+<strong><code>RealCaptcha\RealCaptcha::RANDOM</code></strong>: Generates a random string of letters and numbers.</li>
 <li>
-<strong><code>realCaptcha::DICTIONARY</code></strong>: Selects words at random from the dictionary file.</li>
+<strong><code>RealCaptcha\RealCaptcha::DICTIONARY</code></strong>: Selects words at random from the dictionary file.</li>
 <li>
-<strong><code>realCaptcha::uFUNCTION</code></strong>: Requires you to set a custom made function that returns the captcha text.</li>
+<strong><code>RealCaptcha\RealCaptcha::uFUNCTION</code></strong>: Requires you to set a custom made function that returns the captcha text.</li>
 </ul>
 </li>
 <li>
@@ -211,7 +230,7 @@ matched later and output the captcha image to browser and also daves the image t
 
 <ul>
 <li>
-<strong><code>realCaptcha::GREY_VARIABLE</code></strong> : Randomly chooses a shade from white to light ash.</li>
+<strong><code>RealCaptcha\RealCaptcha::GREY_VARIABLE</code></strong> : Randomly chooses a shade from white to light ash.</li>
 <li>
 <strong><code>array( int, int, int)</code></strong> : A numerical array containing RGB values.</li>
 </ul>
@@ -224,7 +243,9 @@ matched later and output the captcha image to browser and also daves the image t
 <h3>
 <a name="setting-background-and-text-color" class="anchor" href="#setting-background-and-text-color"><span class="octicon octicon-link"></span></a>Setting Background and Text color</h3>
 
-<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+<p><img src="https://raw.githubusercontent.com/omran-jamal/realCaptcha/master/examples/output/c3.jpg" alt="Colored Example"></p>
+
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
     <span class="s2">"background_color"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="c1">//Bright Red</span>
     <span class="s2">"text_color"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span> <span class="c1">//White</span>
 <span class="p">));</span>
@@ -240,7 +261,7 @@ for different fractions of the run cycle.</p>
 
 <p>Setting at Initialization</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
     <span class="s2">"source"</span> <span class="o">=&gt;</span> <span class="nx">realCaptcha</span><span class="o">::</span><span class="na">INPUT</span>
 <span class="p">));</span>
 
@@ -249,7 +270,7 @@ for different fractions of the run cycle.</p>
 
 <p>Setting at Generator</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">();</span>
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">();</span>
 <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="s2">"Text"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"source"</span> <span class="o">=&gt;</span> <span class="nx">realCaptcha</span><span class="o">::</span><span class="na">INPUT</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
 </pre></div>
 
@@ -268,15 +289,17 @@ custom function usage has to be declared in the initialization settings or throu
 and the function has to be define through the <code>textFunction()</code> method as the first argument. All prior to 
 calling the <code>generate()</code> method in which you intend to use the Custom function.</p>
 
+<p><img src="https://raw.githubusercontent.com/omran-jamal/realCaptcha/master/examples/output/c7.jpg" alt="Example Function"></p>
+
 <h4>
 <a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h4>
 
-<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">realCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+<div class="highlight highlight-php"><pre><span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RealCaptcha\RealCaptcha</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
     <span class="s2">"source"</span> <span class="o">=&gt;</span> <span class="nx">realCaptcha</span><span class="o">::</span><span class="na">uFUNCTION</span>
 <span class="p">));</span>
 
 <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">textFunction</span><span class="p">(</span><span class="k">function</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s2">"returned"</span><span class="p">,</span><span class="s2">"text"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s2">"EXAMPLE"</span><span class="p">,</span><span class="s2">"FUNCTION"</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s2">"jpg"</span><span class="p">);</span>
@@ -305,7 +328,7 @@ calling the <code>generate()</code> method in which you intend to use the Custom
 </ul><h2>
 <a name="liscense" class="anchor" href="#liscense"><span class="octicon octicon-link"></span></a>Liscense</h2>
 
-<p>RealCaptcha is released under the <a href="http://projects.dichrome.tk/realCaptcha/license.php">MIT License</a>. Visit the project <a href="http://projects.dichrome.tk/realCaptcha/">Homepage</a> for more information.</p>
+<p>RealCaptcha is released under the <a href="LICENSE.txt">MIT License</a>. Visit the project <a href="http://omran-jamal.github.io/realCaptcha/">Homepage</a> for more information.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/omran-jamal">omran-jamal</a></p>
@@ -313,6 +336,16 @@ calling the <code>generate()</code> method in which you intend to use the Custom
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-51542843-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
