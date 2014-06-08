@@ -14,8 +14,8 @@
         "php": ">=5.3.0"
     },
     "autoload": {
-        "files": [
-            "RealCaptcha.php"
-        ]
+        "psr-4": {
+            "RealCaptcha\\" : "./"
+        }
     }
 }
