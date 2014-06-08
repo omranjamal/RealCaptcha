@@ -39,7 +39,7 @@ The simplest method is using [Composer](https://getcomposer.org). Just require i
 ```json
 {
 	"require":{
-		"omran-jamal/real-captcha":"dev-master"
+		"omranjamal/real-captcha":"dev-master"
 	}
 }
 ```
