@@ -2,7 +2,7 @@ RealCaptcha
 =====================
 
 A PHP Library that uses the [PHP-GD](http://php.net/manual/en/book.image.php) Extension to generate Captchas with only PHP.  
-RealCaptcha is released under the [MIT License](http://projects.dichrome.tk/realCaptcha/license.php). Visit the project [Homepage](http://projects.dichrome.tk/realCaptcha/) for more information.
+RealCaptcha is released under the [MIT License](https://github.com/omranjamal/RealCaptcha/blob/master/LICENSE.txt). Visit the project [Homepage](http://omranjamal.github.io/RealCaptcha) for more information.
 
 **Note:** This code is still in its Beta stage so it maybe prone to many bugs...  
 **Note:** The Fonts included here are not created or owned by the author of the code,
@@ -43,19 +43,19 @@ The simplest method is using [Composer](https://getcomposer.org). Just require i
     }
 }
 ```
-To incluude it in your project, include the composer autoloader and just create new objects of the `RealCaptcha` class under the `RealCaptcha` namespace as such:
+To incluude it in your project, include the composer autoloader and just create new objects of the `RealCaptcha` class under the `omranjamal\RealCaptcha` namespace as such:
 ```php
 include 'vendor/autoload.php';
-$captcha = new RealCaptcha\RealCaptcha();
+$captcha = new omranjamal\RealCaptcha\RealCaptcha();
 ```
 
-Alternatively you could manually clone or download this reppository and directly include the Class file in and create an object of `RealCaptcha\RealCaptcha`
+Alternatively you could manually clone or download this reppository and directly include the Class file in and create an object of `omranjamal\RealCaptcha\RealCaptcha`
 
 Basic Usage
 ---------------------------
 ###Basic
 ```php
-$captcha = new RealCaptcha\RealCaptcha();
+$captcha = new omranjamal\RealCaptcha\RealCaptcha();
 $captcha->generate()->output("jpg");
 ```
 
@@ -64,7 +64,7 @@ All three of these code output similar Captchas to the browser in JPG Format.
 
 While Initializing
 ```php
-$realCaptcha = new RealCaptcha\RealCaptcha(array(
+$realCaptcha = new omranjamal\RealCaptcha\RealCaptcha(array(
     "height" = 200,
     "width" = 500,
     "number_of_words" = 2
@@ -77,7 +77,7 @@ The Settings you provide at Initialzation will be used everytime the `generate()
 
 Using the ***`set()`*** method
 ```php
-$realCaptcha = new RealCaptcha\RealCaptcha();
+$realCaptcha = new omranjamal\RealCaptcha\RealCaptcha();
 
 $realCaptcha->set(array(
     "height" = 200,
@@ -94,7 +94,7 @@ every time the `generate()` method is called.
 While Generating
 
 ```php
-$realCaptcha = new RealCaptcha\RealCaptcha();
+$realCaptcha = new omranjamal\RealCaptcha\RealCaptcha();
 
 $captcha = $realCaptcha->generate(array(
     "height" = 200,
@@ -108,7 +108,7 @@ as soon as the captcha is finished generating.
 
 ###Dealing with output
 ```php
-$realCaptcha = new RealCaptcha\RealCaptcha();
+$realCaptcha = new omranjamal\RealCaptcha\RealCaptcha();
 $captcha = $realCaptcha->generate();
 ```
 The `generate()` method returns an Output object it has two methods and a buch of Properties.
@@ -126,7 +126,7 @@ This example generates a captcha and stores the captcha text  in a session varia
 matched later and output the captcha image to browser and also daves the image to a file named `example.jpg`
 ```php
 session_start();
-$realCaptcha = new RealCaptcha\RealCaptcha();
+$realCaptcha = new omranjamal\RealCaptcha\RealCaptcha();
 
 $captcha = $realCaptcha->generate();
 $_SESSION["captcha_text"] = $captcha->text;
@@ -145,16 +145,16 @@ Full List of settings
 + **height** (a positive Integer) : Height of the generated Captcha Image.
 + **width** (a positive integer) : Width of the generated Captcha Image.
 + **source** (realCaptcha source type constant): Where to get the captcha text from.
-    + **`RealCaptcha\RealCaptcha::INPUT`**: Requires you to pass the captcha text while calling `generate()` method
-    + **`RealCaptcha\RealCaptcha::RANDOM`**: Generates a random string of letters and numbers.
-    + **`RealCaptcha\RealCaptcha::DICTIONARY`**: Selects words at random from the dictionary file.
-    + **`RealCaptcha\RealCaptcha::uFUNCTION`**: Requires you to set a custom made function that returns the captcha text.
+    + **`omranjamal\RealCaptcha\RealCaptcha::INPUT`**: Requires you to pass the captcha text while calling `generate()` method
+    + **`omranjamal\RealCaptcha\RealCaptcha::RANDOM`**: Generates a random string of letters and numbers.
+    + **`omranjamal\RealCaptcha\RealCaptcha::DICTIONARY`**: Selects words at random from the dictionary file.
+    + **`omranjamal\RealCaptcha\RealCaptcha::uFUNCTION`**: Requires you to set a custom made function that returns the captcha text.
 + **dictionary_file** (a valid file path): Path to the dictionary File.
 + **fonts_dir** (a valid directory path): Path to the dictory containing all the fonts.
 + **number_of_words** (a positive integer): Number of words the captcha image should contain.
 + **random_length** (a positive integer): the length of the randomly generated string.
 + **background_color** (realCaptcha variable_grey setting constant or array)
-    + **`RealCaptcha\RealCaptcha::GREY_VARIABLE`** : Randomly chooses a shade from white to light ash.
+    + **`omranjamal\RealCaptcha\RealCaptcha::GREY_VARIABLE`** : Randomly chooses a shade from white to light ash.
     + **`array( int, int, int)`** : A numerical array containing RGB values.
 + **text_color** (array): A numerical array containing RGB values.
 
@@ -166,7 +166,7 @@ Advanced Usage
 ![Colored Example](examples/output/c3.jpg)
 
 ```php
-$captcha = new RealCaptcha\RealCaptcha(array(
+$captcha = new omranjamal\RealCaptcha\RealCaptcha(array(
     "background_color" => array(255,0,0), //Bright Red
     "text_color" => array(255,255,255) //White
 ));
@@ -179,7 +179,7 @@ for different fractions of the run cycle.
 
 Setting at Initialization
 ```php
-$captcha = new RealCaptcha\RealCaptcha(array(
+$captcha = new omranjamal\RealCaptcha\RealCaptcha(array(
     "source" => realCaptcha::INPUT
 ));
 
@@ -188,7 +188,7 @@ $captcha->generate("Text")->output("jpg");
 
 Setting at Generator
 ```php
-$captcha = new RealCaptcha\RealCaptcha();
+$captcha = new omranjamal\RealCaptcha\RealCaptcha();
 $captcha->generate("Text", array("source" => realCaptcha::INPUT))->output("jpg");
 ```
 It is Completely ok to pass String or an Array as input into the generator method,
@@ -207,7 +207,7 @@ calling the `generate()` method in which you intend to use the Custom function.
 
 ####Example
 ```php
-$captcha = new RealCaptcha\RealCaptcha(array(
+$captcha = new omranjamal\RealCaptcha\RealCaptcha(array(
     "source" => realCaptcha::uFUNCTION
 ));
 
