@@ -1,7 +1,7 @@
 {
     "name": "omranjamal/real-captcha",
     "description": "Advanced Captcha generation library for PHP",
-    "keywords": ["captcha","security","generation"],
+    "keywords": ["captcha","security","generation","ttf","fonts"],
     "homepage": "http://omranjamal.github.io/RealCaptcha",
     "license": "MIT",
     "authors": [
