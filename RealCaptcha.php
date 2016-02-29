@@ -297,7 +297,8 @@ class RealCaptcha{
             throw new Exception("Error Finding fonts Directory", 4);
         }else{
             $raw = scandir($settings["fonts_dir"]); // Directory Listing...
-            return array_slice($raw, 2); // Retur list without the soecial entries...
+            $raw = preg_grep('#\.(ttf)$#', $raw); // Ignore license files and others...
+            return $raw;
         }
     }
 
@@ -354,7 +355,7 @@ class RealCaptcha{
         $cursor = $padding;
 
         $offset = rand(0, $assumtion);
-        $font = $settings["fonts_dir"].$fonts[rand(0,count($fonts)-1)];
+        $font = $settings["fonts_dir"].$fonts[array_rand($fonts)];
         $curve_intensity = rand(10, ceil((30/100)*$height));
 
         $plus = rand(0,1);
