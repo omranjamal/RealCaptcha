@@ -129,6 +129,18 @@ class RealCaptcha{
     public function set(array $settings){
         if($settings){
             //Merge and Overlap Default and User Settings
+            if(isset($settings['fonts_dir'])){
+                $append = "/";
+                if(strpos($settings['fonts_dir'],'/') === false){
+                    $append = "\\";
+                }
+                $settings['fonts_dir'] = realpath($settings['fonts_dir']).$append;
+            }
+
+            if(isset($settings['dictionary_file'])){
+                $settings['dictionary_file'] = realpath($settings['dictionary_file']);
+            }
+
             $this->settings = array_merge($this->settings, $settings);
 
         }
@@ -202,7 +214,7 @@ class RealCaptcha{
                     break;
 
                 //if current character is a letter and a space has already been reached, add the character to temporary...
-                if( $first_reach && $array[$pointer] != " " ){
+                if( $first_reach && ctype_alnum($array[$pointer]) ){
                     $temp.= $array[$pointer];
                 }
 
@@ -358,10 +370,12 @@ class RealCaptcha{
 
             //from the top
                 $y_coordinate = $canvas_height-(30/100)*$height+$y;
-                $letter = @imagettftext($canvas, $font_size, $theta/* Rotation */, $cursor, $y_coordinate, imagecolorallocate($canvas, $settings["text_color"][0], $settings["text_color"][1], $settings["text_color"][2]), $font, $raw[$i] );
+                $letter = imagettftext($canvas, $font_size, $theta/* Rotation */, $cursor, $y_coordinate, imagecolorallocate($canvas, $settings["text_color"][0], $settings["text_color"][1], $settings["text_color"][2]), $font, $raw[$i] );
+                
                 if(!$letter){
-                    return FALSE;
+                    return false;
                 }
+
                 $cursor = $letter[2]; //Lower-right corner, X co-ordinate
 
                 if($i == 0){ //If 1st Letter
